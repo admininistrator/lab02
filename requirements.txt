@@ -1,0 +1,4 @@
+# Prefer the instructor-prepared Python 3.11 image. These dependencies are for local verification.
+duckdb>=1.4,<1.5
+boto3>=1.34
+jsonschema>=4.20

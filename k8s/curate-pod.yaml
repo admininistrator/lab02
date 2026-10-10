@@ -1,0 +1,49 @@
+# IMPORTANT: Replace image with actual instructor-approved image@sha256:digest and
+# align runAsUser/securityContext with the hardened Lab 1 template BEFORE apply.
+# Requires existing s3-ingestor Secret and objects:8333 Kubernetes Service.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curate
+  labels:
+    access: s3
+spec:
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000  # CHECK against Lab 1-approved UID
+    fsGroup: 1000    # CHECK scratch write access
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: client
+      image: bd-g06-s3-client:lab1  # local Lab 1 image, NOT digest-pinned; swap for instructor-approved digest
+      imagePullPolicy: Never
+      command: ["sleep", "infinity"]
+      workingDir: /work
+      envFrom:
+        - secretRef:
+            name: s3-ingestor
+      env:
+        - name: S3_ENDPOINT
+          value: "http://objects:8333"
+        - name: STORE_ID
+          value: "bd-g06-objects"
+      resources:
+        requests:
+          cpu: "500m"
+          memory: "512Mi"
+        limits:
+          cpu: "1"
+          memory: "1Gi"
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: ["ALL"]
+      volumeMounts:
+        - name: work
+          mountPath: /work
+  volumes:
+    - name: work
+      emptyDir:
+        sizeLimit: 2Gi
