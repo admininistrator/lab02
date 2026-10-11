@@ -1,0 +1,228 @@
+{
+  "report_id": "quality_before",
+  "dataset_version": "research-telemetry-v1",
+  "as_of": "2026-02-09T00:00:00Z",
+  "generated_at_utc": "2026-10-11T10:10:16.425475+00:00",
+  "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
+  "scope": "Before curation. W is the deterministic winner set before row-validity filtering. Key uniqueness uses key-eligible rows before deduplication.",
+  "inventory": {
+    "raw_physical_rows": 10205,
+    "parse_failures": 5,
+    "key_rejected_rows": 20,
+    "ingest_parse_failures_after_key_check": 20,
+    "key_eligible_rows": 10160,
+    "winner_rows_W": 9960,
+    "distinct_eligible_ids": 9960,
+    "duplicate_excess": 200
+  },
+  "metrics": [
+    {
+      "rule_id": "Q_REQUIRED",
+      "dataset_version": "research-telemetry-v1",
+      "cohort": "W: deterministic winners before validity filtering",
+      "description": "All six required source fields are nonblank.",
+      "numerator": 9850,
+      "denominator": 9960,
+      "value": 0.9889558232931727,
+      "threshold": 1.0,
+      "severity": "high",
+      "status": "FAIL"
+    },
+    {
+      "rule_id": "Q_KEY_UNIQUENESS",
+      "dataset_version": "research-telemetry-v1",
+      "cohort": "Key-eligible rows before deduplication",
+      "description": "Distinct normalized record IDs divided by eligible rows.",
+      "numerator": 9960,
+      "denominator": 10160,
+      "value": 0.9803149606299213,
+      "threshold": 1.0,
+      "severity": "high",
+      "status": "FAIL"
+    },
+    {
+      "rule_id": "Q_VALUE",
+      "dataset_version": "research-telemetry-v1",
+      "cohort": "W: deterministic winners before validity filtering",
+      "description": "Finite numeric reading, supported unit and Celsius range.",
+      "numerator": 9710,
+      "denominator": 9960,
+      "value": 0.9748995983935743,
+      "threshold": 1.0,
+      "severity": "high",
+      "status": "FAIL"
+    },
+    {
+      "rule_id": "Q_SENSOR",
+      "dataset_version": "research-telemetry-v1",
+      "cohort": "W: deterministic winners before validity filtering",
+      "description": "Normalized sensor ID exists in the sensor registry.",
+      "numerator": 9930,
+      "denominator": 9960,
+      "value": 0.9969879518072289,
+      "threshold": 1.0,
+      "severity": "high",
+      "status": "FAIL"
+    },
+    {
+      "rule_id": "Q_CHRONOLOGY",
+      "dataset_version": "research-telemetry-v1",
+      "cohort": "W: deterministic winners before validity filtering",
+      "description": "Parseable timestamps satisfying event <= ingest <= AS_OF.",
+      "numerator": 9890,
+      "denominator": 9960,
+      "value": 0.9929718875502008,
+      "threshold": 1.0,
+      "severity": "high",
+      "status": "FAIL"
+    },
+    {
+      "rule_id": "Q_TIMELINESS",
+      "dataset_version": "research-telemetry-v1",
+      "cohort": "Chronologically valid rows in W",
+      "description": "Ingestion lag is at most the contract threshold of 900 seconds.",
+      "numerator": 9690,
+      "denominator": 9890,
+      "value": 0.9797775530839231,
+      "threshold": 0.95,
+      "severity": "high",
+      "status": "PASS"
+    }
+  ],
+  "defect_investigation": {
+    "parse_failures": [
+      {
+        "source_object": "local://fixture/input/observations_b.jsonl",
+        "source_row": 5201,
+        "record_id": null,
+        "sensor_id": null,
+        "event_time": null,
+        "ingest_time": null,
+        "reading": null,
+        "unit": null
+      },
+      {
+        "source_object": "local://fixture/input/observations_b.jsonl",
+        "source_row": 5202,
+        "record_id": null,
+        "sensor_id": null,
+        "event_time": null,
+        "ingest_time": null,
+        "reading": null,
+        "unit": null
+      },
+      {
+        "source_object": "local://fixture/input/observations_b.jsonl",
+        "source_row": 5203,
+        "record_id": null,
+        "sensor_id": null,
+        "event_time": null,
+        "ingest_time": null,
+        "reading": null,
+        "unit": null
+      }
+    ],
+    "missing_or_invalid_id": [
+      {
+        "source_object": "local://fixture/input/observations_a.csv",
+        "source_row": 341,
+        "record_id": null,
+        "sensor_id": "S01",
+        "event_time": "2026-02-02T02:50:30Z",
+        "ingest_time": "2026-02-02T02:51:30Z",
+        "reading": "22.10",
+        "unit": "C"
+      },
+      {
+        "source_object": "local://fixture/input/observations_a.csv",
+        "source_row": 342,
+        "record_id": null,
+        "sensor_id": "S02",
+        "event_time": "2026-02-02T02:51:00Z",
+        "ingest_time": "2026-02-02T02:52:00Z",
+        "reading": "71.96",
+        "unit": "F"
+      },
+      {
+        "source_object": "local://fixture/input/observations_a.csv",
+        "source_row": 343,
+        "record_id": null,
+        "sensor_id": "S03",
+        "event_time": "2026-02-02T02:51:30Z",
+        "ingest_time": "2026-02-02T02:52:30Z",
+        "reading": "22.30",
+        "unit": "C"
+      }
+    ],
+    "invalid_ingest_time": [
+      {
+        "source_object": "local://fixture/input/observations_a.csv",
+        "source_row": 361,
+        "record_id": "R000361",
+        "sensor_id": "S01",
+        "event_time": "2026-02-02T03:00:30Z",
+        "ingest_time": "invalid",
+        "reading": "24.10",
+        "unit": "C"
+      },
+      {
+        "source_object": "local://fixture/input/observations_a.csv",
+        "source_row": 362,
+        "record_id": "R000362",
+        "sensor_id": "S02",
+        "event_time": "2026-02-02T03:01:00Z",
+        "ingest_time": "invalid",
+        "reading": "75.56",
+        "unit": "F"
+      },
+      {
+        "source_object": "local://fixture/input/observations_a.csv",
+        "source_row": 363,
+        "record_id": "R000363",
+        "sensor_id": "S03",
+        "event_time": "2026-02-02T03:01:30Z",
+        "ingest_time": "invalid",
+        "reading": "24.30",
+        "unit": "C"
+      }
+    ],
+    "invalid_reading": [
+      {
+        "source_object": "local://fixture/input/observations_a.csv",
+        "source_row": 1,
+        "record_id": "R000001",
+        "sensor_id": "S01",
+        "event_time": "2026-02-02T00:00:30Z",
+        "ingest_time": "2026-02-02T00:01:30Z",
+        "reading": null,
+        "unit": "C"
+      },
+      {
+        "source_object": "local://fixture/input/observations_a.csv",
+        "source_row": 2,
+        "record_id": "R000002",
+        "sensor_id": "S02",
+        "event_time": "2026-02-02T00:01:00Z",
+        "ingest_time": "2026-02-02T00:02:00Z",
+        "reading": null,
+        "unit": "F"
+      },
+      {
+        "source_object": "local://fixture/input/observations_a.csv",
+        "source_row": 3,
+        "record_id": "R000003",
+        "sensor_id": "S03",
+        "event_time": "2026-02-02T00:01:30Z",
+        "ingest_time": "2026-02-02T00:02:30Z",
+        "reading": null,
+        "unit": "C"
+      }
+    ]
+  },
+  "limitations": [
+    "This is the before-quality checkpoint; it is not release approval.",
+    "Reference agreement and coverage must be evaluated on the curated candidate in Task 3.",
+    "After-quality metrics must be recomputed after curation.",
+    "A zero denominator is reported as NOT_EVALUATED, not 100%."
+  ]
+}
