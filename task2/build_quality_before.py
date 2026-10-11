@@ -132,25 +132,25 @@ chronology_ok = scalar(f"""
       AND ingest_ts <= TIMESTAMP '{as_of}'
 """)
 
-chronology_population = scalar("""
+chronology_population = scalar(f"""
     SELECT COUNT(*)
     FROM winners
     WHERE event_ts IS NOT NULL
       AND ingest_ts IS NOT NULL
       AND event_ts <= ingest_ts
-      AND ingest_ts <= TIMESTAMP '2026-02-09 00:00:00'
+      AND ingest_ts <= TIMESTAMP '{as_of}'
 """)
 
-timely = scalar("""
+# Timely rows are the chronologically valid rows with lag <= 900 seconds.
+timely = scalar(f"""
     SELECT COUNT(*)
     FROM winners
     WHERE event_ts IS NOT NULL
       AND ingest_ts IS NOT NULL
       AND event_ts <= ingest_ts
-      AND ingest_ts <= TIMESTAMP '2026-02-09 00:00:00'
+      AND ingest_ts <= TIMESTAMP '{as_of}'
       AND date_diff('second', event_ts, ingest_ts) <= 900
 """)
-
 thresholds = contract["release_thresholds"]
 metrics = [
     metric(
@@ -243,14 +243,44 @@ report = {
             AND regexp_matches(record_id, '^R[0-9]{6}$')
             AND ingest_ts IS NULL
         """),
-        "invalid_reading": examples("""
+                "invalid_reading": examples("""
             parse_ok IS TRUE
             AND record_id IS NOT NULL
             AND regexp_matches(record_id, '^R[0-9]{6}$')
             AND ingest_ts IS NOT NULL
             AND (
-              value_num IS NULL OR NOT isfinite(value_num)
+              value_num IS NULL
+              OR NOT isfinite(value_num)
+              OR unit IS NULL
               OR unit NOT IN ('C', 'F')
+              OR (
+                CASE
+                  WHEN unit = 'C' THEN value_num
+                  WHEN unit = 'F' THEN (value_num - 32.0) * 5.0 / 9.0
+                  ELSE NULL
+                END
+              ) IS NULL
+              OR NOT isfinite(
+                CASE
+                  WHEN unit = 'C' THEN value_num
+                  WHEN unit = 'F' THEN (value_num - 32.0) * 5.0 / 9.0
+                  ELSE NULL
+                END
+              )
+              OR (
+                CASE
+                  WHEN unit = 'C' THEN value_num
+                  WHEN unit = 'F' THEN (value_num - 32.0) * 5.0 / 9.0
+                  ELSE NULL
+                END
+              ) < -30
+              OR (
+                CASE
+                  WHEN unit = 'C' THEN value_num
+                  WHEN unit = 'F' THEN (value_num - 32.0) * 5.0 / 9.0
+                  ELSE NULL
+                END
+              ) > 60
             )
         """)
     },

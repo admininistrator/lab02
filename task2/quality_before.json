@@ -2,8 +2,8 @@
   "report_id": "quality_before",
   "dataset_version": "research-telemetry-v1",
   "as_of": "2026-02-09T00:00:00Z",
-  "generated_at_utc": "2026-10-11T10:10:16.425475+00:00",
-  "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
+  "generated_at_utc": "2026-10-11T11:28:36.158793+00:00",
+  "contract_sha256": "e0aa69b0287f817fa50f6ddc770bf20f3f74ebf807b9b7362a91e5c41637d1d8",
   "scope": "Before curation. W is the deterministic winner set before row-validity filtering. Key uniqueness uses key-eligible rows before deduplication.",
   "inventory": {
     "raw_physical_rows": 10205,
