@@ -1,0 +1,62 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' width='1040' height='444' viewBox='0 0 1040 444'>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="24" y="30" font-family="Arial" font-size="20" font-weight="bold">Lab 2 quality: before winners vs curated candidate</text>
+<text x="24" y="52" font-family="Arial" font-size="12" fill="#444">Before = W winners before validity filtering; after = curated rows (reference metrics evaluated after curation)</text>
+<text x="250" y="69" font-family="Arial" font-size="12" fill="#333">0%</text>
+<text x="530" y="69" font-family="Arial" font-size="12" fill="#333">100%</text>
+<text x='24' y='91' font-family='Arial' font-size='13'>Required-field completeness</text>
+<rect x='250' y='77' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='77' width='296.7' height='14' rx='3' fill='#6b8afd'/>
+<text x='570' y='89' font-family='Arial' font-size='12'>before 9850/9960 (98.9%)</text>
+<rect x='250' y='95' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='95' width='300' height='14' rx='3' fill='#22a06b'/>
+<text x='570' y='107' font-family='Arial' font-size='12'>after 9610/9610 (100%)</text>
+<text x='24' y='133' font-family='Arial' font-size='13'>Business-key uniqueness</text>
+<rect x='250' y='119' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='119' width='294.1' height='14' rx='3' fill='#6b8afd'/>
+<text x='570' y='131' font-family='Arial' font-size='12'>before 9960/10160 (98.03%)</text>
+<rect x='250' y='137' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='137' width='300' height='14' rx='3' fill='#22a06b'/>
+<text x='570' y='149' font-family='Arial' font-size='12'>after 9610/9610 (100%)</text>
+<text x='24' y='175' font-family='Arial' font-size='13'>Value validity</text>
+<rect x='250' y='161' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='161' width='292.5' height='14' rx='3' fill='#6b8afd'/>
+<text x='570' y='173' font-family='Arial' font-size='12'>before 9710/9960 (97.49%)</text>
+<rect x='250' y='179' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='179' width='300' height='14' rx='3' fill='#22a06b'/>
+<text x='570' y='191' font-family='Arial' font-size='12'>after 9610/9610 (100%)</text>
+<text x='24' y='217' font-family='Arial' font-size='13'>Registry consistency</text>
+<rect x='250' y='203' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='203' width='299.1' height='14' rx='3' fill='#6b8afd'/>
+<text x='570' y='215' font-family='Arial' font-size='12'>before 9930/9960 (99.7%)</text>
+<rect x='250' y='221' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='221' width='300' height='14' rx='3' fill='#22a06b'/>
+<text x='570' y='233' font-family='Arial' font-size='12'>after 9610/9610 (100%)</text>
+<text x='24' y='259' font-family='Arial' font-size='13'>Temporal consistency</text>
+<rect x='250' y='245' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='245' width='297.9' height='14' rx='3' fill='#6b8afd'/>
+<text x='570' y='257' font-family='Arial' font-size='12'>before 9890/9960 (99.3%)</text>
+<rect x='250' y='263' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='263' width='300' height='14' rx='3' fill='#22a06b'/>
+<text x='570' y='275' font-family='Arial' font-size='12'>after 9610/9610 (100%)</text>
+<text x='24' y='301' font-family='Arial' font-size='13'>Timeliness (eligible rows)</text>
+<rect x='250' y='287' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='287' width='293.9' height='14' rx='3' fill='#6b8afd'/>
+<text x='570' y='299' font-family='Arial' font-size='12'>before 9690/9890 (97.98%)</text>
+<rect x='250' y='305' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='305' width='293.8' height='14' rx='3' fill='#22a06b'/>
+<text x='570' y='317' font-family='Arial' font-size='12'>after 9410/9610 (97.92%)</text>
+<text x='24' y='343' font-family='Arial' font-size='13'>Reference coverage</text>
+<rect x='250' y='329' width='300' height='14' rx='3' fill='#eeeeee'/>
+<text x='570' y='341' font-family='Arial' font-size='12' fill='#777'>before: not measured for this rule</text>
+<rect x='250' y='347' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='347' width='300' height='14' rx='3' fill='#22a06b'/>
+<text x='570' y='359' font-family='Arial' font-size='12'>after 100/100 (100%)</text>
+<text x='24' y='385' font-family='Arial' font-size='13'>Reference agreement</text>
+<rect x='250' y='371' width='300' height='14' rx='3' fill='#eeeeee'/>
+<text x='570' y='383' font-family='Arial' font-size='12' fill='#777'>before: not measured for this rule</text>
+<rect x='250' y='389' width='300' height='14' rx='3' fill='#eeeeee'/>
+<rect x='250' y='389' width='285' height='14' rx='3' fill='#22a06b'/>
+<text x='570' y='401' font-family='Arial' font-size='12'>after 95/100 (95%)</text>
+<text x='24' y='434' font-family='Arial' font-size='11' fill='#444'>Blue = before; green = after. Denominators are shown per metric; timeliness uses chronologically eligible rows.</text>
+</svg>

@@ -17,7 +17,10 @@
     "steward": {"type": "string", "minLength": 1},
     "classification": {"type": "string", "minLength": 1},
     "allowed_use": {"type": "string", "minLength": 1},
-    "location": {"type": "string", "minLength": 1},
+    "location": {
+      "type": "array", "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
     "schema_version": {"type": "string", "minLength": 1},
     "as_of": {"type": "string", "format": "date-time"},
     "row_count": {"type": "integer", "minimum": 0},
@@ -25,9 +28,9 @@
       "type": "array", "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["name", "type", "meaning", "nullable"],
+        "required": ["name", "type", "unit", "meaning", "nullable"],
         "properties": {
-          "name": {"type": "string"}, "type": {"type": "string"},
+          "name": {"type": "string", "minLength": 1}, "type": {"type": "string", "minLength": 1},
           "meaning": {"type": "string"}, "unit": {"type": ["string", "null"]},
           "nullable": {"type": "boolean"}
         },
@@ -37,8 +40,24 @@
     "input_manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "contract_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "code_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-    "quality_report": {"type": "string", "minLength": 1},
-    "retention": {"type": "object"},
+    "quality_report": {
+      "type": "object", "required": ["path", "report_id"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "report_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "retention": {
+      "type": "object",
+      "required": ["days", "start_basis", "hold", "dependent_release_ids", "action"],
+      "properties": {
+        "days": {"type": "integer", "minimum": 0},
+        "start_basis": {"type": "string", "minLength": 1},
+        "hold": {"type": "boolean"},
+        "dependent_release_ids": {"type": "array", "items": {"type": "string"}},
+        "action": {"type": "string", "minLength": 1}
+      }
+    },
     "provenance": {"type": "object"}
   },
   "additionalProperties": true

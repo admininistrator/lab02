@@ -1,0 +1,87 @@
+{
+  "M01": [
+    {
+      "dataset_id": "curated-candidate-885c06ee",
+      "owner": "Thinh (Role-E / Release owner)",
+      "steward": "Minh (Role-D / Metadata)",
+      "row_count": 9610,
+      "location": [
+        "work/candidate/curated.parquet"
+      ],
+      "schema_version": "research-telemetry-v1"
+    }
+  ],
+  "M02": {
+    "restricted_with_retention": [
+      {
+        "dataset_id": "raw-observations-885c06ee",
+        "classification": "restricted-raw",
+        "retention": {
+          "days": 30,
+          "start_basis": "retrieval_time",
+          "hold": false,
+          "dependent_release_ids": [],
+          "action": "dry-run only"
+        }
+      },
+      {
+        "dataset_id": "quarantine-885c06ee",
+        "classification": "restricted-quarantine",
+        "retention": {
+          "days": 7,
+          "start_basis": "run_completion_time",
+          "hold": false,
+          "dependent_release_ids": [],
+          "action": "dry-run only"
+        }
+      }
+    ],
+    "release_columns": [
+      "record_id",
+      "sensor_id",
+      "site",
+      "event_time_utc",
+      "ingest_time_utc",
+      "temperature_c",
+      "is_late",
+      "source_object",
+      "source_row",
+      "source_sha256"
+    ],
+    "release_has_email": false
+  },
+  "M03_peer_check": {
+    "status": "PENDING_INDEPENDENT_PEER",
+    "materials": [
+      "catalog.json",
+      "DATA_README.md",
+      "task4/draft-manifest.json"
+    ],
+    "questions": [
+      "What unit is temperature_c reported in?",
+      "How many IDs are in the reference population and how is it used?",
+      "What is the evaluation cutoff (AS_OF)?",
+      "What are two documented limitations?",
+      "Which role is the contact steward and which role is the owner?"
+    ],
+    "responses": [],
+    "correct_count": null
+  },
+  "validation": {
+    "catalog_datasets": 3,
+    "catalog_sha256": "ca8b77dacc70b987d6b9de80b7452fd7cad6affbe084750c40c06031739e76d7",
+    "lineage_exists": true,
+    "traces_exist": true,
+    "measured_artifacts": {
+      "status": "PASS",
+      "local_fallback": true,
+      "raw_envelope_rows": 10205,
+      "curated_rows": 9610,
+      "quarantine_rows": 395,
+      "artifact_hashes_match": true,
+      "curated_schema_matches": true,
+      "curated_schema_check": "PASS",
+      "manifest_contract_code_hashes_match": true
+    }
+  }
+}

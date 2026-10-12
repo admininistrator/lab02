@@ -1,0 +1,76 @@
+{
+  "policy_version": "lab2-course-retention-v1",
+  "recorded_at_utc": "2026-10-12T04:29:20.980661+00:00",
+  "time_basis_note": "Retention clocks use retrieval_time / run_completion_time / publication_time. Do not infer eligibility from AS_OF.",
+  "classes": [
+    {
+      "class": "raw_input",
+      "days": 30,
+      "start_basis": "retrieval_time",
+      "overrides": [
+        "legal_hold",
+        "active_approved_release_dependency"
+      ]
+    },
+    {
+      "class": "quarantine",
+      "days": 7,
+      "start_basis": "run_completion_time",
+      "overrides": [
+        "legal_hold"
+      ]
+    },
+    {
+      "class": "approved_release",
+      "days": 90,
+      "start_basis": "publication_time",
+      "overrides": [
+        "legal_hold"
+      ]
+    },
+    {
+      "class": "manifests_audit",
+      "days": 90,
+      "start_basis": "publication_time",
+      "note": "Retain at least as long as the dependent release."
+    }
+  ],
+  "dry_run_cases": [
+    {
+      "case_id": "R01",
+      "object": "scratch/temp-export.parquet",
+      "expired": true,
+      "hold": false,
+      "dependent_release": null,
+      "decision": "ELIGIBLE",
+      "reason": "Expired scratch; no hold; no dependent release. Not actually deleted."
+    },
+    {
+      "case_id": "R02",
+      "object": "research-raw/lab2/staging/885c06ee-6d42-49fd-a5d1-7db1fe77b2ce/quarantine.csv",
+      "expired": true,
+      "hold": true,
+      "dependent_release": null,
+      "decision": "KEEP",
+      "reason": "HOLD"
+    },
+    {
+      "case_id": "R03",
+      "object": "research-raw/lab2/inputs/batch-01/observations_a.csv",
+      "expired": true,
+      "hold": false,
+      "dependent_release": "lab2-release-active-demo",
+      "decision": "KEEP",
+      "reason": "ACTIVE_DEPENDENCY"
+    },
+    {
+      "case_id": "R04",
+      "object": "research-raw/lab2/staging/885c06ee-6d42-49fd-a5d1-7db1fe77b2ce/curated.parquet",
+      "expired": false,
+      "hold": false,
+      "dependent_release": null,
+      "decision": "KEEP",
+      "reason": "NOT_EXPIRED"
+    }
+  ]
+}
