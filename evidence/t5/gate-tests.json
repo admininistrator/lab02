@@ -1,0 +1,390 @@
+{
+  "scope": "P01-P08: P01 PASS case, P02-P08 reject cases",
+  "original_inputs_unchanged": true,
+  "candidate_sha256": "7d2bd035736df207d27fdf0c10bd967c240263a047e42d059b026c6f1d7e8e64",
+  "records": [
+    {
+      "case": "P01",
+      "changed_artifact": "none (unmodified copy of candidate)",
+      "expected": "PASS (data checks G01-G07)",
+      "observed_gate": "PASS",
+      "failed_checks": [],
+      "measured_failures": null,
+      "case_result": "AS_EXPECTED",
+      "operator": "Duc Anh",
+      "executed_at": "2026-10-12T13:32:30.306248+00:00",
+      "duration_s": 1.07
+    },
+    {
+      "case": "P02",
+      "changed_artifact": "candidate: one temperature_c set to 100.00",
+      "expected": "REJECT / VALUE -> one of G05_VALUES_KEYS",
+      "observed_gate": "REJECT",
+      "failed_checks": [
+        "G01_STAGED_ARTIFACTS",
+        "G05_VALUES_KEYS"
+      ],
+      "measured_failures": [
+        {
+          "check": "G01_STAGED_ARTIFACTS",
+          "status": "FAIL",
+          "artifacts_ok": 2,
+          "bad_artifacts": [
+            {
+              "artifact": "curated.parquet",
+              "problem": "HASH_MISMATCH"
+            }
+          ],
+          "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9"
+        },
+        {
+          "check": "G05_VALUES_KEYS",
+          "status": "FAIL",
+          "value_validity": {
+            "n": 9609,
+            "d": 9610,
+            "value": 0.9998959417273673,
+            "status": "EVALUATED"
+          },
+          "key_uniqueness_and_format": {
+            "n": 9610,
+            "d": 9610,
+            "value": 1.0,
+            "status": "EVALUATED"
+          },
+          "sensor_and_site": {
+            "n": 9610,
+            "d": 9610,
+            "value": 1.0,
+            "status": "EVALUATED"
+          }
+        }
+      ],
+      "case_result": "AS_EXPECTED",
+      "operator": "Duc Anh",
+      "executed_at": "2026-10-12T13:32:31.374083+00:00",
+      "duration_s": 1.08
+    },
+    {
+      "case": "P03",
+      "changed_artifact": "candidate: one temperature_c set to NULL",
+      "expected": "REJECT / REQUIRED or VALUE -> one of G04_REQUIRED, G05_VALUES_KEYS",
+      "observed_gate": "REJECT",
+      "failed_checks": [
+        "G01_STAGED_ARTIFACTS",
+        "G04_REQUIRED",
+        "G05_VALUES_KEYS"
+      ],
+      "measured_failures": [
+        {
+          "check": "G01_STAGED_ARTIFACTS",
+          "status": "FAIL",
+          "artifacts_ok": 2,
+          "bad_artifacts": [
+            {
+              "artifact": "curated.parquet",
+              "problem": "HASH_MISMATCH"
+            }
+          ],
+          "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9"
+        },
+        {
+          "check": "G04_REQUIRED",
+          "status": "FAIL",
+          "completeness": {
+            "n": 9609,
+            "d": 9610,
+            "value": 0.9998959417273673,
+            "status": "EVALUATED"
+          },
+          "threshold": 1.0,
+          "bad_by_column": {
+            "record_id": 0,
+            "sensor_id": 0,
+            "site": 0,
+            "event_time_utc": 0,
+            "ingest_time_utc": 0,
+            "temperature_c": 1,
+            "is_late": 0,
+            "source_object": 0,
+            "source_row": 0,
+            "source_sha256": 0
+          }
+        },
+        {
+          "check": "G05_VALUES_KEYS",
+          "status": "FAIL",
+          "value_validity": {
+            "n": 9609,
+            "d": 9610,
+            "value": 0.9998959417273673,
+            "status": "EVALUATED"
+          },
+          "key_uniqueness_and_format": {
+            "n": 9610,
+            "d": 9610,
+            "value": 1.0,
+            "status": "EVALUATED"
+          },
+          "sensor_and_site": {
+            "n": 9610,
+            "d": 9610,
+            "value": 1.0,
+            "status": "EVALUATED"
+          }
+        }
+      ],
+      "case_result": "AS_EXPECTED",
+      "operator": "Duc Anh",
+      "executed_at": "2026-10-12T13:32:32.452782+00:00",
+      "duration_s": 1.03
+    },
+    {
+      "case": "P04",
+      "changed_artifact": "candidate: one business record appended twice",
+      "expected": "REJECT / UNIQUENESS or RECONCILIATION -> one of G02_CONSERVATION, G05_VALUES_KEYS",
+      "observed_gate": "REJECT",
+      "failed_checks": [
+        "G01_STAGED_ARTIFACTS",
+        "G02_CONSERVATION",
+        "G05_VALUES_KEYS",
+        "G08_METADATA"
+      ],
+      "measured_failures": [
+        {
+          "check": "G01_STAGED_ARTIFACTS",
+          "status": "FAIL",
+          "artifacts_ok": 2,
+          "bad_artifacts": [
+            {
+              "artifact": "curated.parquet",
+              "problem": "HASH_MISMATCH"
+            }
+          ],
+          "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9"
+        },
+        {
+          "check": "G02_CONSERVATION",
+          "status": "FAIL",
+          "n_raw": 10205,
+          "n_curated": 9611,
+          "n_quarantine": 395,
+          "n_duplicates": 200,
+          "missing_from_outputs": 0,
+          "invented_ids": 0,
+          "overlapping_ids": 0,
+          "repeated_within_output": {
+            "cur_ids": 1,
+            "q_ids": 0,
+            "d_ids": 0
+          },
+          "duplicate_record_id_in_curated": 1,
+          "duplicate_raw_ids": 0
+        },
+        {
+          "check": "G05_VALUES_KEYS",
+          "status": "FAIL",
+          "value_validity": {
+            "n": 9611,
+            "d": 9611,
+            "value": 1.0,
+            "status": "EVALUATED"
+          },
+          "key_uniqueness_and_format": {
+            "n": 9610,
+            "d": 9611,
+            "value": 0.9998959525543648,
+            "status": "EVALUATED"
+          },
+          "sensor_and_site": {
+            "n": 9611,
+            "d": 9611,
+            "value": 1.0,
+            "status": "EVALUATED"
+          }
+        },
+        {
+          "check": "G08_METADATA",
+          "status": "FAIL",
+          "problem_count": 1,
+          "problems": [
+            "curated: row_count 9610 != measured 9611"
+          ],
+          "observed": {
+            "catalog_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+            "run_record_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+            "input_manifest_sha256_in_run_record": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
+            "sha256_of_external_trusted_manifest": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331"
+          }
+        }
+      ],
+      "case_result": "AS_EXPECTED",
+      "operator": "Duc Anh",
+      "executed_at": "2026-10-12T13:32:33.484882+00:00",
+      "duration_s": 0.95
+    },
+    {
+      "case": "P05",
+      "changed_artifact": "metadata copy: steward removed from the curated record",
+      "expected": "REJECT / METADATA -> one of G08_METADATA",
+      "observed_gate": "REJECT",
+      "failed_checks": [
+        "G08_METADATA"
+      ],
+      "measured_failures": [
+        {
+          "check": "G08_METADATA",
+          "status": "FAIL",
+          "problem_count": 2,
+          "problems": [
+            "schema curated-candidate-89a3ec6e: 'steward' is a required property",
+            "curated: steward missing or empty"
+          ],
+          "observed": {
+            "catalog_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+            "run_record_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+            "input_manifest_sha256_in_run_record": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
+            "sha256_of_external_trusted_manifest": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331"
+          }
+        }
+      ],
+      "case_result": "AS_EXPECTED",
+      "operator": "Duc Anh",
+      "executed_at": "2026-10-12T13:32:34.439162+00:00",
+      "duration_s": 0.94
+    },
+    {
+      "case": "P06",
+      "changed_artifact": "disposable copy of snapshot/observations_a.csv (1 byte flipped)",
+      "expected": "REJECT / INPUT_INTEGRITY -> one of G01_INTEGRITY",
+      "observed_gate": "REJECT",
+      "failed_checks": [
+        "G01_INTEGRITY"
+      ],
+      "measured_failures": [
+        {
+          "check": "G01_INTEGRITY",
+          "status": "FAIL",
+          "objects_ok": 3,
+          "objects_expected": 4,
+          "bad_objects": [
+            {
+              "key": "observations_a.csv",
+              "problem": "INPUT_INTEGRITY"
+            }
+          ],
+          "candidate_source_hash_mismatch": [],
+          "reason": "INPUT_INTEGRITY"
+        }
+      ],
+      "case_result": "AS_EXPECTED",
+      "operator": "Duc Anh",
+      "executed_at": "2026-10-12T13:32:35.380961+00:00",
+      "duration_s": 0.99
+    },
+    {
+      "case": "P07",
+      "changed_artifact": "lineage copy: curated.parquet output removed from the COMPLETE event",
+      "expected": "REJECT / LINEAGE -> one of G09_LINEAGE",
+      "observed_gate": "REJECT",
+      "failed_checks": [
+        "G09_LINEAGE"
+      ],
+      "measured_failures": [
+        {
+          "check": "G09_LINEAGE",
+          "status": "FAIL",
+          "scope": "lineage only; replay equivalence not included",
+          "events": 2,
+          "problem_count": 1,
+          "problems": [
+            "COMPLETE missing output research-raw/lab2/staging/89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9/curated.parquet"
+          ]
+        }
+      ],
+      "case_result": "AS_EXPECTED",
+      "operator": "Duc Anh",
+      "executed_at": "2026-10-12T13:32:36.372471+00:00",
+      "duration_s": 0.98
+    },
+    {
+      "case": "P08",
+      "changed_artifact": "candidate: one QA-sample ID with mismatching temperature removed",
+      "expected": "REJECT / COVERAGE -> one of G07_REFERENCE",
+      "observed_gate": "REJECT",
+      "failed_checks": [
+        "G01_STAGED_ARTIFACTS",
+        "G02_CONSERVATION",
+        "G07_REFERENCE",
+        "G08_METADATA"
+      ],
+      "measured_failures": [
+        {
+          "check": "G01_STAGED_ARTIFACTS",
+          "status": "FAIL",
+          "artifacts_ok": 2,
+          "bad_artifacts": [
+            {
+              "artifact": "curated.parquet",
+              "problem": "HASH_MISMATCH"
+            }
+          ],
+          "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9"
+        },
+        {
+          "check": "G02_CONSERVATION",
+          "status": "FAIL",
+          "n_raw": 10205,
+          "n_curated": 9609,
+          "n_quarantine": 395,
+          "n_duplicates": 200,
+          "missing_from_outputs": 1,
+          "invented_ids": 0,
+          "overlapping_ids": 0,
+          "repeated_within_output": {
+            "cur_ids": 0,
+            "q_ids": 0,
+            "d_ids": 0
+          },
+          "duplicate_record_id_in_curated": 0,
+          "duplicate_raw_ids": 0
+        },
+        {
+          "check": "G07_REFERENCE",
+          "status": "FAIL",
+          "reference_ids": 100,
+          "coverage": {
+            "n": 99,
+            "d": 100,
+            "value": 0.99,
+            "status": "EVALUATED"
+          },
+          "agreement": {
+            "n": 95,
+            "d": 99,
+            "value": 0.9595959595959596,
+            "status": "EVALUATED"
+          }
+        },
+        {
+          "check": "G08_METADATA",
+          "status": "FAIL",
+          "problem_count": 1,
+          "problems": [
+            "curated: row_count 9610 != measured 9609"
+          ],
+          "observed": {
+            "catalog_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+            "run_record_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+            "input_manifest_sha256_in_run_record": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
+            "sha256_of_external_trusted_manifest": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331"
+          }
+        }
+      ],
+      "case_result": "AS_EXPECTED",
+      "operator": "Duc Anh",
+      "executed_at": "2026-10-12T13:32:37.355573+00:00",
+      "duration_s": 1.34
+    }
+  ]
+}

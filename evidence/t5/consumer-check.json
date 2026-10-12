@@ -1,0 +1,21 @@
+{
+  "release_id": "rel-89a3ec6e",
+  "manifest_read": true,
+  "artifact_hashes_verified": 6,
+  "artifacts": [
+    "data/curated.parquet",
+    "evidence/quality_after.json",
+    "evidence/review.json",
+    "evidence/run-record.json",
+    "metadata/catalog.json",
+    "metadata/README.md"
+  ],
+  "raw_access_denied": true,
+  "row_count_expected": 9610,
+  "row_count_verified": true,
+  "note": "Manifest, artifact hashes, row count and raw-access denial verified.",
+  "parquet_sha256_verified": true,
+  "parquet_size_verified": true,
+  "actual_row_count": 9610,
+  "row_count_matches": true
+}
