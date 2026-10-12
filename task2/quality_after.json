@@ -2,11 +2,11 @@
   "report_id": "quality_after",
   "dataset_version": "research-telemetry-v1",
   "as_of": "2026-02-09T00:00:00Z",
-  "generated_at_utc": "2026-10-12T03:59:59.939857+00:00",
-  "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+  "generated_at_utc": "2026-10-12T11:14:07.369641+00:00",
+  "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
   "store_id": "bd-g06-objects",
   "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
-  "code_sha256": "d5aaafb7fa5fca7ff5a3d9976857c3c4060a7e517a10e3b27e1d3d76a4c77663",
+  "code_sha256": "6c7ea525e5e8161b93e0ff898c576eaec2a9c1d71e1f1f7d36cae9ef7bdd2346",
   "input_manifest_sha256": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
   "inventory": {
     "raw_physical_rows": 10205,
@@ -37,7 +37,7 @@
     {
       "rule_id": "Q_REQUIRED",
       "dataset_id": "curated-candidate",
-      "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+      "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
       "contract_version": "research-telemetry-v1",
       "cohort": "curated rows",
       "numerator": 9610,
@@ -50,7 +50,7 @@
     {
       "rule_id": "Q_KEY_UNIQUENESS",
       "dataset_id": "curated-candidate",
-      "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+      "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
       "contract_version": "research-telemetry-v1",
       "cohort": "curated rows",
       "numerator": 9610,
@@ -63,7 +63,7 @@
     {
       "rule_id": "Q_VALUE",
       "dataset_id": "curated-candidate",
-      "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+      "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
       "contract_version": "research-telemetry-v1",
       "cohort": "curated rows",
       "numerator": 9610,
@@ -76,7 +76,7 @@
     {
       "rule_id": "Q_SENSOR",
       "dataset_id": "curated-candidate",
-      "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+      "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
       "contract_version": "research-telemetry-v1",
       "cohort": "curated rows",
       "numerator": 9610,
@@ -89,7 +89,7 @@
     {
       "rule_id": "Q_CHRONOLOGY",
       "dataset_id": "curated-candidate",
-      "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+      "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
       "contract_version": "research-telemetry-v1",
       "cohort": "curated rows",
       "numerator": 9610,
@@ -102,7 +102,7 @@
     {
       "rule_id": "Q_TIMELINESS",
       "dataset_id": "curated-candidate",
-      "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+      "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
       "contract_version": "research-telemetry-v1",
       "cohort": "chronologically valid curated rows",
       "numerator": 9410,
@@ -115,7 +115,7 @@
     {
       "rule_id": "Q_QA_COVERAGE",
       "dataset_id": "curated-candidate",
-      "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+      "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
       "contract_version": "research-telemetry-v1",
       "cohort": "all 100 reference IDs",
       "numerator": 100,
@@ -128,7 +128,7 @@
     {
       "rule_id": "Q_QA_AGREEMENT",
       "dataset_id": "curated-candidate",
-      "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+      "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
       "contract_version": "research-telemetry-v1",
       "cohort": "matched reference IDs",
       "numerator": 95,
@@ -140,14 +140,14 @@
     }
   ],
   "artifact_hashes": {
-    "curated.parquet": "4810cf184eaff71b98b3134fea3df3c4bc75e0c057a784413ba16a08ca86c0a0",
+    "curated.parquet": "7d2bd035736df207d27fdf0c10bd967c240263a047e42d059b026c6f1d7e8e64",
     "quarantine.csv": "a3a950b2bbca998f118d4ff5f200d8568703549c5acd3b6a7aa30b1562d2024b",
     "duplicates.csv": "9af38c3bb75b954fcb74e8d3739e3bf3fe6a1994cdf0b0fe4a3da105664c6b8b"
   },
   "locations": {
-    "curated": "s3://research-raw/lab2/staging/885c06ee-6d42-49fd-a5d1-7db1fe77b2ce/curated.parquet",
-    "quarantine": "s3://research-raw/lab2/staging/885c06ee-6d42-49fd-a5d1-7db1fe77b2ce/quarantine.csv",
-    "duplicates": "s3://research-raw/lab2/staging/885c06ee-6d42-49fd-a5d1-7db1fe77b2ce/duplicates.csv",
+    "curated": "s3://research-raw/lab2/staging/89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9/curated.parquet",
+    "quarantine": "s3://research-raw/lab2/staging/89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9/quarantine.csv",
+    "duplicates": "s3://research-raw/lab2/staging/89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9/duplicates.csv",
     "local_curated": "work/candidate/curated.parquet",
     "local_quarantine": "work/staging/quarantine.csv",
     "local_duplicates": "work/staging/duplicates.csv",

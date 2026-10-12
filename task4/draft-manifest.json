@@ -1,13 +1,13 @@
 {
   "manifest_type": "candidate-manifest-draft",
   "status": "DRAFT_NOT_APPROVED",
-  "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
-  "dataset_id": "curated-candidate-885c06ee",
+  "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+  "dataset_id": "curated-candidate-89a3ec6e",
   "schema_version": "research-telemetry-v1",
   "row_count": 9610,
   "artifact": {
     "location": "work/candidate/curated.parquet",
-    "sha256": "4810cf184eaff71b98b3134fea3df3c4bc75e0c057a784413ba16a08ca86c0a0"
+    "sha256": "7d2bd035736df207d27fdf0c10bd967c240263a047e42d059b026c6f1d7e8e64"
   },
   "reviewer": "PENDING_INDEPENDENT_REVIEW",
   "note": "Candidate handover for Task 4 peer review; not a release approval or publication manifest."
