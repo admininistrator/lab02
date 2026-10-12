@@ -1,7 +1,7 @@
 {
   "M01": [
     {
-      "dataset_id": "curated-candidate-885c06ee",
+      "dataset_id": "curated-candidate-89a3ec6e",
       "owner": "Thinh (Role-E / Release owner)",
       "steward": "Minh (Role-D / Metadata)",
       "row_count": 9610,
@@ -14,7 +14,7 @@
   "M02": {
     "restricted_with_retention": [
       {
-        "dataset_id": "raw-observations-885c06ee",
+        "dataset_id": "raw-observations-89a3ec6e",
         "classification": "restricted-raw",
         "retention": {
           "days": 30,
@@ -25,7 +25,7 @@
         }
       },
       {
-        "dataset_id": "quarantine-885c06ee",
+        "dataset_id": "quarantine-89a3ec6e",
         "classification": "restricted-quarantine",
         "retention": {
           "days": 7,
@@ -69,7 +69,7 @@
   },
   "validation": {
     "catalog_datasets": 3,
-    "catalog_sha256": "ca8b77dacc70b987d6b9de80b7452fd7cad6affbe084750c40c06031739e76d7",
+    "catalog_sha256": "07e1bc17c0adea08dff1f02e5b96b0e2cf40ab2757017d8c41c0b19675dd141d",
     "lineage_exists": true,
     "traces_exist": true,
     "measured_artifacts": {

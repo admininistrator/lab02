@@ -18,7 +18,7 @@ Malformed rows are quarantined as `PARSE`. Missing/invalid IDs (`R[0-9]{6}`) and
 ## Quality cohorts and limitations
 Before metrics use winner population W; after metrics recompute on the curated candidate, including reference coverage (100 IDs) and agreement (±0.05 °C). Completeness improving after rejection does **not** mean missing values were recovered—see retained/rejected fractions in the quality reports. Sample agreement does not prove every real-world sensor is accurate.
 
-Measured curated row count for run `885c06ee-6d42-49fd-a5d1-7db1fe77b2ce`: **9610**. Conservation and metric details: `quality_after`.
+Measured curated row count for run `89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9`: **9610**. Conservation and metric details: `quality_after`.
 
 ## Permitted use and access boundary
 Allowed use is synthetic teaching only. Curator identities may read raw/staging and must not publish releases; publishers re-check and write release prefixes; analysts read approved release objects only. Metadata labels are not access controls. Do not redistribute restricted quarantine payloads or raw emails.
@@ -32,4 +32,4 @@ python code/run_curation.py
 python code/build_task4.py
 ```
 
-Hashes binding this run: input_manifest `fe048451e073…`, contract `8d3ab69399fd…`, code `d5aaafb7fa5f…`. See `catalog.json` and `run-record.json` for full digests and locations.
+Hashes binding this run: input_manifest `fe048451e073…`, contract `8d3ab69399fd…`, code `6c7ea525e5e8…`. See `catalog.json` and `run-record.json` for full digests and locations.

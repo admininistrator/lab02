@@ -1,21 +1,21 @@
 {
-  "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+  "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
   "job": "curate",
   "status": "COMPLETE",
   "store_id": "bd-g06-objects",
   "as_of": "2026-02-09T00:00:00Z",
-  "started_at_utc": "2026-10-12T04:00:00.006635+00:00",
-  "ended_at_utc": "2026-10-12T04:00:00.006659+00:00",
+  "started_at_utc": "2026-10-12T11:14:07.416318+00:00",
+  "ended_at_utc": "2026-10-12T11:14:07.416332+00:00",
   "input_manifest_sha256": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
   "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
-  "code_sha256": "d5aaafb7fa5fca7ff5a3d9976857c3c4060a7e517a10e3b27e1d3d76a4c77663",
+  "code_sha256": "6c7ea525e5e8161b93e0ff898c576eaec2a9c1d71e1f1f7d36cae9ef7bdd2346",
   "software": {
     "python": "3.13.5",
     "duckdb": "1.4.5"
   },
   "outputs": {
     "curated.parquet": {
-      "sha256": "4810cf184eaff71b98b3134fea3df3c4bc75e0c057a784413ba16a08ca86c0a0",
+      "sha256": "7d2bd035736df207d27fdf0c10bd967c240263a047e42d059b026c6f1d7e8e64",
       "row_count": 9610,
       "path": "work/candidate/curated.parquet"
     },
@@ -30,7 +30,7 @@
       "path": "work/staging/duplicates.csv"
     }
   },
-  "operator": "Tung (Role-C / Curation)",
-  "reviewer": "Thinh (Role-E / independent review pending until T5)",
+  "operator": "Role-C-Curation",
+  "reviewer": "PENDING_INDEPENDENT_REVIEW",
   "conservation_pass": true
 }
