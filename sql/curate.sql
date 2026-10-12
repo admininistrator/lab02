@@ -13,7 +13,8 @@ SELECT
 CREATE OR REPLACE VIEW registry_norm AS
 SELECT
   upper(trim(sensor_id)) AS sensor_id,
-  upper(trim(site)) AS site
+  -- site is registry-derived; contract only TRIM_UPPER for record_id/sensor_id/unit
+  trim(site) AS site
 FROM registry;
 
 -- Physical intake with pre-dedup flags (PARSE / KEY / INGEST_PARSE).

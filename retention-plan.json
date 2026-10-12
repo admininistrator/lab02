@@ -1,6 +1,6 @@
 {
   "policy_version": "lab2-course-retention-v1",
-  "recorded_at_utc": "2026-10-12T04:29:20.980661+00:00",
+  "recorded_at_utc": "2026-10-12T11:14:08.226583+00:00",
   "time_basis_note": "Retention clocks use retrieval_time / run_completion_time / publication_time. Do not infer eligibility from AS_OF.",
   "classes": [
     {
@@ -47,7 +47,7 @@
     },
     {
       "case_id": "R02",
-      "object": "research-raw/lab2/staging/885c06ee-6d42-49fd-a5d1-7db1fe77b2ce/quarantine.csv",
+      "object": "research-raw/lab2/staging/89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9/quarantine.csv",
       "expired": true,
       "hold": true,
       "dependent_release": null,
@@ -65,7 +65,7 @@
     },
     {
       "case_id": "R04",
-      "object": "research-raw/lab2/staging/885c06ee-6d42-49fd-a5d1-7db1fe77b2ce/curated.parquet",
+      "object": "research-raw/lab2/staging/89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9/curated.parquet",
       "expired": false,
       "hold": false,
       "dependent_release": null,

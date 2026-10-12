@@ -1,11 +1,11 @@
 {
   "catalog_version": "lab2-task4-v1",
-  "generated_at_utc": "2026-10-12T04:29:20.867326+00:00",
+  "generated_at_utc": "2026-10-12T11:14:08.101266+00:00",
   "store_id": "bd-g06-objects",
-  "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+  "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
   "datasets": [
     {
-      "dataset_id": "raw-observations-885c06ee",
+      "dataset_id": "raw-observations-89a3ec6e",
       "title": "Raw research-telemetry observation collection",
       "purpose": "Preserve every physical observation from CSV source A and JSONL source B for governed curation.",
       "owner": "Thinh (Role-E / Release owner)",
@@ -108,7 +108,7 @@
       "row_count": 10205,
       "input_manifest_sha256": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
       "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
-      "code_sha256": "d5aaafb7fa5fca7ff5a3d9976857c3c4060a7e517a10e3b27e1d3d76a4c77663",
+      "code_sha256": "6c7ea525e5e8161b93e0ff898c576eaec2a9c1d71e1f1f7d36cae9ef7bdd2346",
       "quality_report": {
         "path": "task2/quality_before.json",
         "report_id": "quality_before"
@@ -122,7 +122,7 @@
       },
       "provenance": {
         "job": "stage_inputs",
-        "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+        "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
         "store_id": "bd-g06-objects",
         "source_aliases": {
           "csv_source_a": {
@@ -156,7 +156,7 @@
       }
     },
     {
-      "dataset_id": "quarantine-885c06ee",
+      "dataset_id": "quarantine-89a3ec6e",
       "title": "Quarantine ledger for rejected observations",
       "purpose": "Account for every physical record rejected before or after winner validation.",
       "owner": "Thinh (Role-E / Release owner)",
@@ -222,7 +222,7 @@
       "row_count": 395,
       "input_manifest_sha256": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
       "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
-      "code_sha256": "d5aaafb7fa5fca7ff5a3d9976857c3c4060a7e517a10e3b27e1d3d76a4c77663",
+      "code_sha256": "6c7ea525e5e8161b93e0ff898c576eaec2a9c1d71e1f1f7d36cae9ef7bdd2346",
       "quality_report": {
         "path": "task2/quality_after.json",
         "report_id": "quality_after"
@@ -236,13 +236,13 @@
       },
       "provenance": {
         "job": "curate",
-        "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
-        "operator": "Tung (Role-C / Curation)",
+        "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+        "operator": "Role-C-Curation",
         "lineage": "work/evidence/lineage.jsonl"
       }
     },
     {
-      "dataset_id": "curated-candidate-885c06ee",
+      "dataset_id": "curated-candidate-89a3ec6e",
       "title": "Curated research-telemetry candidate",
       "purpose": "Analyst-facing candidate observations after deterministic curation; still gated before release.",
       "owner": "Thinh (Role-E / Release owner)",
@@ -329,7 +329,7 @@
       "row_count": 9610,
       "input_manifest_sha256": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
       "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
-      "code_sha256": "d5aaafb7fa5fca7ff5a3d9976857c3c4060a7e517a10e3b27e1d3d76a4c77663",
+      "code_sha256": "6c7ea525e5e8161b93e0ff898c576eaec2a9c1d71e1f1f7d36cae9ef7bdd2346",
       "quality_report": {
         "path": "task2/quality_after.json",
         "report_id": "quality_after"
@@ -343,8 +343,8 @@
       },
       "provenance": {
         "job": "curate",
-        "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
-        "operator": "Tung (Role-C / Curation)",
+        "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+        "operator": "Role-C-Curation",
         "duplicate_ledger": "work/staging/duplicates.csv",
         "lineage": "work/evidence/lineage.jsonl",
         "traces": "work/evidence/lineage_traces.json"
