@@ -18,8 +18,8 @@ WORK = ROOT / 'work'
 CAND = WORK / 'candidate' / 'curated.parquet'
 MUT = WORK / 'mutations'
 EVID = WORK / 'evidence'
-BASE = dict(catalog=str(EVID / 'catalog.json'), lineage=str(EVID / 'lineage.jsonl'),
-            run_record=str(EVID / 'run-record.json'))
+BASE = dict(catalog=str(ROOT / 'catalog.json'), lineage=str(ROOT / 'lineage.jsonl'),
+            run_record=str(ROOT / 'run-record.json'))
 OPERATOR = os.environ.get('OPERATOR', os.environ.get('USERNAME', 'unknown'))
 TOL = json.loads((ROOT / 'contract.json').read_text(encoding='utf-8'))[
     'reference_agreement']['max_abs_delta_c']
@@ -72,7 +72,7 @@ def p05():
     d = MUT / 'P05'
     shutil.rmtree(d, ignore_errors=True)
     d.mkdir(parents=True)
-    cat = json.loads((EVID / 'catalog.json').read_text(encoding='utf-8-sig'))
+    cat = json.loads((ROOT / 'catalog.json').read_text(encoding='utf-8-sig'))
     n = 0
     for ds in cat['datasets']:
         if ds['dataset_id'].startswith('curated'):
@@ -89,7 +89,7 @@ def p07():
     d = MUT / 'P07'
     shutil.rmtree(d, ignore_errors=True)
     d.mkdir(parents=True)
-    lines = (EVID / 'lineage.jsonl').read_text(encoding='utf-8-sig').splitlines()
+    lines = (ROOT / 'lineage.jsonl').read_text(encoding='utf-8-sig').splitlines()
     events = [json.loads(x) for x in lines if x.strip()]
     n = 0
     for e in events:

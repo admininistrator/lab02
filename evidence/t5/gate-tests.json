@@ -12,8 +12,8 @@
       "measured_failures": null,
       "case_result": "AS_EXPECTED",
       "operator": "Duc Anh",
-      "executed_at": "2026-10-12T08:33:42.381141+00:00",
-      "duration_s": 1.04
+      "executed_at": "2026-10-12T13:32:30.306248+00:00",
+      "duration_s": 1.07
     },
     {
       "case": "P02",
@@ -35,7 +35,7 @@
               "problem": "HASH_MISMATCH"
             }
           ],
-          "run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e"
+          "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9"
         },
         {
           "check": "G05_VALUES_KEYS",
@@ -62,8 +62,8 @@
       ],
       "case_result": "AS_EXPECTED",
       "operator": "Duc Anh",
-      "executed_at": "2026-10-12T08:33:43.421624+00:00",
-      "duration_s": 0.96
+      "executed_at": "2026-10-12T13:32:31.374083+00:00",
+      "duration_s": 1.08
     },
     {
       "case": "P03",
@@ -86,7 +86,7 @@
               "problem": "HASH_MISMATCH"
             }
           ],
-          "run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e"
+          "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9"
         },
         {
           "check": "G04_REQUIRED",
@@ -136,8 +136,8 @@
       ],
       "case_result": "AS_EXPECTED",
       "operator": "Duc Anh",
-      "executed_at": "2026-10-12T08:33:44.383834+00:00",
-      "duration_s": 0.94
+      "executed_at": "2026-10-12T13:32:32.452782+00:00",
+      "duration_s": 1.03
     },
     {
       "case": "P04",
@@ -161,7 +161,7 @@
               "problem": "HASH_MISMATCH"
             }
           ],
-          "run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e"
+          "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9"
         },
         {
           "check": "G02_CONSERVATION",
@@ -211,8 +211,8 @@
             "curated: row_count 9610 != measured 9611"
           ],
           "observed": {
-            "catalog_run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e",
-            "run_record_run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e",
+            "catalog_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+            "run_record_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
             "input_manifest_sha256_in_run_record": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
             "sha256_of_external_trusted_manifest": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331"
           }
@@ -220,8 +220,8 @@
       ],
       "case_result": "AS_EXPECTED",
       "operator": "Duc Anh",
-      "executed_at": "2026-10-12T08:33:45.321083+00:00",
-      "duration_s": 1.27
+      "executed_at": "2026-10-12T13:32:33.484882+00:00",
+      "duration_s": 0.95
     },
     {
       "case": "P05",
@@ -237,12 +237,12 @@
           "status": "FAIL",
           "problem_count": 2,
           "problems": [
-            "schema curated-candidate-55053752: 'steward' is a required property",
+            "schema curated-candidate-89a3ec6e: 'steward' is a required property",
             "curated: steward missing or empty"
           ],
           "observed": {
-            "catalog_run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e",
-            "run_record_run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e",
+            "catalog_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+            "run_record_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
             "input_manifest_sha256_in_run_record": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
             "sha256_of_external_trusted_manifest": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331"
           }
@@ -250,8 +250,8 @@
       ],
       "case_result": "AS_EXPECTED",
       "operator": "Duc Anh",
-      "executed_at": "2026-10-12T08:33:46.586135+00:00",
-      "duration_s": 1.52
+      "executed_at": "2026-10-12T13:32:34.439162+00:00",
+      "duration_s": 0.94
     },
     {
       "case": "P06",
@@ -279,8 +279,8 @@
       ],
       "case_result": "AS_EXPECTED",
       "operator": "Duc Anh",
-      "executed_at": "2026-10-12T08:33:48.106368+00:00",
-      "duration_s": 1.57
+      "executed_at": "2026-10-12T13:32:35.380961+00:00",
+      "duration_s": 0.99
     },
     {
       "case": "P07",
@@ -298,14 +298,14 @@
           "events": 2,
           "problem_count": 1,
           "problems": [
-            "COMPLETE missing output research-raw/lab2/staging/55053752-a2e3-4abd-82f1-0eda64016a4e/curated.parquet"
+            "COMPLETE missing output research-raw/lab2/staging/89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9/curated.parquet"
           ]
         }
       ],
       "case_result": "AS_EXPECTED",
       "operator": "Duc Anh",
-      "executed_at": "2026-10-12T08:33:49.677148+00:00",
-      "duration_s": 1.54
+      "executed_at": "2026-10-12T13:32:36.372471+00:00",
+      "duration_s": 0.98
     },
     {
       "case": "P08",
@@ -329,7 +329,7 @@
               "problem": "HASH_MISMATCH"
             }
           ],
-          "run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e"
+          "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9"
         },
         {
           "check": "G02_CONSERVATION",
@@ -374,8 +374,8 @@
             "curated: row_count 9610 != measured 9609"
           ],
           "observed": {
-            "catalog_run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e",
-            "run_record_run_id": "55053752-a2e3-4abd-82f1-0eda64016a4e",
+            "catalog_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+            "run_record_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
             "input_manifest_sha256_in_run_record": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
             "sha256_of_external_trusted_manifest": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331"
           }
@@ -383,8 +383,8 @@
       ],
       "case_result": "AS_EXPECTED",
       "operator": "Duc Anh",
-      "executed_at": "2026-10-12T08:33:51.216695+00:00",
-      "duration_s": 1.25
+      "executed_at": "2026-10-12T13:32:37.355573+00:00",
+      "duration_s": 1.34
     }
   ]
 }
