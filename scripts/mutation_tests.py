@@ -1,4 +1,4 @@
-﻿"""T5 mutation harness: P01-P08 against scripts/release_gate.py (G01-G07 only)."""
+"""T5 mutation harness: P01-P08 against scripts/release_gate.py (G01-G07 only)."""
 import hashlib
 import json
 import os
@@ -18,6 +18,8 @@ WORK = ROOT / 'work'
 CAND = WORK / 'candidate' / 'curated.parquet'
 MUT = WORK / 'mutations'
 EVID = WORK / 'evidence'
+BASE = dict(catalog=str(EVID / 'catalog.json'), lineage=str(EVID / 'lineage.jsonl'),
+            run_record=str(EVID / 'run-record.json'))
 OPERATOR = os.environ.get('OPERATOR', os.environ.get('USERNAME', 'unknown'))
 TOL = json.loads((ROOT / 'contract.json').read_text(encoding='utf-8'))[
     'reference_agreement']['max_abs_delta_c']
@@ -66,6 +68,42 @@ def p06():
             'disposable copy of snapshot/observations_a.csv (1 byte flipped)')
 
 
+def p05():
+    d = MUT / 'P05'
+    shutil.rmtree(d, ignore_errors=True)
+    d.mkdir(parents=True)
+    cat = json.loads((EVID / 'catalog.json').read_text(encoding='utf-8-sig'))
+    n = 0
+    for ds in cat['datasets']:
+        if ds['dataset_id'].startswith('curated'):
+            ds.pop('steward', None)
+            n += 1
+    assert n == 1
+    out = d / 'catalog.json'
+    out.write_text(json.dumps(cat, indent=2), encoding='utf-8')
+    return (dict(candidate=CAND, catalog=str(out)),
+            'metadata copy: steward removed from the curated record')
+
+
+def p07():
+    d = MUT / 'P07'
+    shutil.rmtree(d, ignore_errors=True)
+    d.mkdir(parents=True)
+    lines = (EVID / 'lineage.jsonl').read_text(encoding='utf-8-sig').splitlines()
+    events = [json.loads(x) for x in lines if x.strip()]
+    n = 0
+    for e in events:
+        if e['eventType'] == 'COMPLETE':
+            before = len(e['outputs'])
+            e['outputs'] = [o for o in e['outputs'] if not o['name'].endswith('/curated.parquet')]
+            n += before - len(e['outputs'])
+    assert n == 1
+    out = d / 'lineage.jsonl'
+    out.write_text('\n'.join(json.dumps(e) for e in events) + '\n', encoding='utf-8')
+    return (dict(candidate=CAND, lineage=str(out)),
+            'lineage copy: curated.parquet output removed from the COMPLETE event')
+
+
 MISMATCH_ID = ("(SELECT min(c.record_id) FROM cur c JOIN qa q ON q.record_id = c.record_id "
                "WHERE abs(c.temperature_c - q.reference_c) > CAST(" + str(TOL)
                + " AS DECIMAL(8,2)))")
@@ -88,7 +126,9 @@ CASES = [
         'P04', 'SELECT * FROM cur UNION ALL SELECT * FROM '
         '(SELECT * FROM cur ORDER BY source_object, source_row LIMIT 1)',
         'candidate: one business record appended twice')),
+    dict(id='P05', expect=['G08_METADATA'], label='REJECT / METADATA', build=p05),
     dict(id='P06', expect=['G01_INTEGRITY'], label='REJECT / INPUT_INTEGRITY', build=p06),
+    dict(id='P07', expect=['G09_LINEAGE'], label='REJECT / LINEAGE', build=p07),
     dict(id='P08', expect=['G07_REFERENCE'], label='REJECT / COVERAGE', build=cand_case(
         'P08', 'SELECT * FROM cur WHERE record_id <> ' + MISMATCH_ID,
         'candidate: one QA-sample ID with mismatching temperature removed')),
@@ -99,7 +139,7 @@ def run_case(c):
     t0 = time.time()
     started = datetime.now(timezone.utc).isoformat()
     kwargs, changed = c['build']()
-    r = gate.evaluate(**kwargs)
+    r = gate.evaluate(**{**BASE, **kwargs})
     failures = [x for x in r.get('checks', []) if x['status'] != 'PASS']
     failed_ids = [x['check'] for x in failures]
     if c['expect'] == 'PASS':
@@ -119,16 +159,13 @@ def run_case(c):
 def main():
     cand_before, snap_before = sha(CAND), sha(WORK / 'snapshot' / 'observations_a.csv')
     records = [run_case(c) for c in CASES]
-    for cid, why in (('P05', 'needs G08 metadata check (not implemented yet)'),
-                     ('P07', 'needs G09 lineage check (not implemented yet)')):
-        records.append(dict(case=cid, case_result='NOT_RUN', reason=why, operator=OPERATOR))
     records.sort(key=lambda x: x['case'])
     unchanged = (sha(CAND) == cand_before
                  and sha(WORK / 'snapshot' / 'observations_a.csv') == snap_before)
     EVID.mkdir(parents=True, exist_ok=True)
-    out = dict(scope='P01-P04, P06, P08 run; P05, P07 not run', original_inputs_unchanged=unchanged,
+    out = dict(scope='P01-P08: P01 PASS case, P02-P08 reject cases', original_inputs_unchanged=unchanged,
                candidate_sha256=cand_before, records=records)
-    (EVID / 'gate-tests-data.json').write_text(json.dumps(out, indent=2, default=str),
+    (EVID / 'gate-tests.json').write_text(json.dumps(out, indent=2, default=str),
                                                encoding='utf-8')
     for r in records:
         print(r['case'], r['case_result'], r.get('observed_gate', ''), r.get('failed_checks', ''))
