@@ -1,0 +1,36 @@
+{
+  "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+  "job": "curate",
+  "status": "COMPLETE",
+  "store_id": "bd-g06-objects",
+  "as_of": "2026-02-09T00:00:00Z",
+  "started_at_utc": "2026-10-12T04:00:00.006635+00:00",
+  "ended_at_utc": "2026-10-12T04:00:00.006659+00:00",
+  "input_manifest_sha256": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
+  "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
+  "code_sha256": "d5aaafb7fa5fca7ff5a3d9976857c3c4060a7e517a10e3b27e1d3d76a4c77663",
+  "software": {
+    "python": "3.13.5",
+    "duckdb": "1.4.5"
+  },
+  "outputs": {
+    "curated.parquet": {
+      "sha256": "4810cf184eaff71b98b3134fea3df3c4bc75e0c057a784413ba16a08ca86c0a0",
+      "row_count": 9610,
+      "path": "work/candidate/curated.parquet"
+    },
+    "quarantine.csv": {
+      "sha256": "a3a950b2bbca998f118d4ff5f200d8568703549c5acd3b6a7aa30b1562d2024b",
+      "row_count": 395,
+      "path": "work/staging/quarantine.csv"
+    },
+    "duplicates.csv": {
+      "sha256": "9af38c3bb75b954fcb74e8d3739e3bf3fe6a1994cdf0b0fe4a3da105664c6b8b",
+      "row_count": 200,
+      "path": "work/staging/duplicates.csv"
+    }
+  },
+  "operator": "Tung (Role-C / Curation)",
+  "reviewer": "Thinh (Role-E / independent review pending until T5)",
+  "conservation_pass": true
+}

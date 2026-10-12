@@ -1,0 +1,14 @@
+{
+  "manifest_type": "candidate-manifest-draft",
+  "status": "DRAFT_NOT_APPROVED",
+  "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+  "dataset_id": "curated-candidate-885c06ee",
+  "schema_version": "research-telemetry-v1",
+  "row_count": 9610,
+  "artifact": {
+    "location": "work/candidate/curated.parquet",
+    "sha256": "4810cf184eaff71b98b3134fea3df3c4bc75e0c057a784413ba16a08ca86c0a0"
+  },
+  "reviewer": "PENDING_INDEPENDENT_REVIEW",
+  "note": "Candidate handover for Task 4 peer review; not a release approval or publication manifest."
+}

@@ -1,0 +1,354 @@
+{
+  "catalog_version": "lab2-task4-v1",
+  "generated_at_utc": "2026-10-12T04:29:20.867326+00:00",
+  "store_id": "bd-g06-objects",
+  "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+  "datasets": [
+    {
+      "dataset_id": "raw-observations-885c06ee",
+      "title": "Raw research-telemetry observation collection",
+      "purpose": "Preserve every physical observation from CSV source A and JSONL source B for governed curation.",
+      "owner": "Thinh (Role-E / Release owner)",
+      "steward": "Minh (Role-D / Metadata)",
+      "classification": "restricted-raw",
+      "allowed_use": "Synthetic teaching data only; not for operational or personal inference.",
+      "location": [
+        "work/snapshot/observations_a.csv",
+        "work/snapshot/observations_b.jsonl",
+        "work/envelopes.csv"
+      ],
+      "schema_version": "research-telemetry-v1",
+      "columns": [
+        {
+          "name": "record_id",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": true,
+          "meaning": "Canonical id; CSV record_id / JSONL id"
+        },
+        {
+          "name": "sensor_id",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": true,
+          "meaning": "Canonical sensor; CSV sensor_id / JSONL sensor"
+        },
+        {
+          "name": "event_time",
+          "type": "VARCHAR",
+          "unit": "UTC string",
+          "nullable": true,
+          "meaning": "Canonical event time; CSV event_time / JSONL timestamp"
+        },
+        {
+          "name": "ingest_time",
+          "type": "VARCHAR",
+          "unit": "UTC string",
+          "nullable": true,
+          "meaning": "Canonical ingest time; CSV ingest_time / JSONL arrived_at"
+        },
+        {
+          "name": "reading",
+          "type": "VARCHAR",
+          "unit": "source unit",
+          "nullable": true,
+          "meaning": "Canonical reading; CSV reading / JSONL temperature"
+        },
+        {
+          "name": "unit",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": true,
+          "meaning": "Canonical unit; CSV unit / JSONL temperature_unit"
+        },
+        {
+          "name": "operator_email",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": true,
+          "meaning": "Restricted optional operator attribute; excluded from release"
+        },
+        {
+          "name": "source_object",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Physical source object URI/identifier"
+        },
+        {
+          "name": "source_row",
+          "type": "BIGINT",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Physical row ordinal"
+        },
+        {
+          "name": "source_sha256",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Source object digest"
+        },
+        {
+          "name": "parse_ok",
+          "type": "BOOLEAN",
+          "unit": null,
+          "nullable": false,
+          "meaning": "False when the physical JSON/CSV record failed parsing"
+        },
+        {
+          "name": "raw_payload",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Restricted raw payload retained for quarantine diagnostics"
+        }
+      ],
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 10205,
+      "input_manifest_sha256": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
+      "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
+      "code_sha256": "d5aaafb7fa5fca7ff5a3d9976857c3c4060a7e517a10e3b27e1d3d76a4c77663",
+      "quality_report": {
+        "path": "task2/quality_before.json",
+        "report_id": "quality_before"
+      },
+      "retention": {
+        "days": 30,
+        "start_basis": "retrieval_time",
+        "hold": false,
+        "dependent_release_ids": [],
+        "action": "dry-run only"
+      },
+      "provenance": {
+        "job": "stage_inputs",
+        "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+        "store_id": "bd-g06-objects",
+        "source_aliases": {
+          "csv_source_a": {
+            "object": "observations_a.csv",
+            "fields": [
+              "record_id",
+              "sensor_id",
+              "event_time",
+              "ingest_time",
+              "reading",
+              "unit",
+              "operator_email"
+            ]
+          },
+          "jsonl_source_b": {
+            "object": "observations_b.jsonl",
+            "fields": [
+              "id",
+              "sensor",
+              "timestamp",
+              "arrived_at",
+              "temperature",
+              "temperature_unit",
+              "operator"
+            ]
+          }
+        }
+      },
+      "supporting_artifacts": {
+        "duplicate_ledger": "work/staging/duplicates.csv"
+      }
+    },
+    {
+      "dataset_id": "quarantine-885c06ee",
+      "title": "Quarantine ledger for rejected observations",
+      "purpose": "Account for every physical record rejected before or after winner validation.",
+      "owner": "Thinh (Role-E / Release owner)",
+      "steward": "Minh (Role-D / Metadata)",
+      "classification": "restricted-quarantine",
+      "allowed_use": "Synthetic teaching data only; diagnostic reuse under course access boundary.",
+      "location": [
+        "work/staging/quarantine.csv"
+      ],
+      "schema_version": "research-telemetry-v1",
+      "columns": [
+        {
+          "name": "source_object",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Physical source object of the rejected row"
+        },
+        {
+          "name": "source_row",
+          "type": "BIGINT",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Physical row ordinal"
+        },
+        {
+          "name": "source_sha256",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Source object digest"
+        },
+        {
+          "name": "record_id",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": true,
+          "meaning": "Business id when parseable"
+        },
+        {
+          "name": "primary_reason",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Primary quarantine reason under contract precedence"
+        },
+        {
+          "name": "all_reasons",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Pipe-delimited set of all applicable reason codes"
+        },
+        {
+          "name": "stage",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "pre_dedup or winner_validation"
+        }
+      ],
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 395,
+      "input_manifest_sha256": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
+      "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
+      "code_sha256": "d5aaafb7fa5fca7ff5a3d9976857c3c4060a7e517a10e3b27e1d3d76a4c77663",
+      "quality_report": {
+        "path": "task2/quality_after.json",
+        "report_id": "quality_after"
+      },
+      "retention": {
+        "days": 7,
+        "start_basis": "run_completion_time",
+        "hold": false,
+        "dependent_release_ids": [],
+        "action": "dry-run only"
+      },
+      "provenance": {
+        "job": "curate",
+        "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+        "operator": "Tung (Role-C / Curation)",
+        "lineage": "work/evidence/lineage.jsonl"
+      }
+    },
+    {
+      "dataset_id": "curated-candidate-885c06ee",
+      "title": "Curated research-telemetry candidate",
+      "purpose": "Analyst-facing candidate observations after deterministic curation; still gated before release.",
+      "owner": "Thinh (Role-E / Release owner)",
+      "steward": "Minh (Role-D / Metadata)",
+      "classification": "candidate",
+      "allowed_use": "Synthetic teaching data only; publish only after owner-approved release gate.",
+      "location": [
+        "work/candidate/curated.parquet"
+      ],
+      "schema_version": "research-telemetry-v1",
+      "columns": [
+        {
+          "name": "record_id",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Normalized business observation identifier"
+        },
+        {
+          "name": "sensor_id",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Normalized sensor identifier joined to the registry"
+        },
+        {
+          "name": "site",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Site label derived from sensors.csv registry"
+        },
+        {
+          "name": "event_time_utc",
+          "type": "TIMESTAMP",
+          "unit": "UTC",
+          "nullable": false,
+          "meaning": "Observation event timestamp in UTC"
+        },
+        {
+          "name": "ingest_time_utc",
+          "type": "TIMESTAMP",
+          "unit": "UTC",
+          "nullable": false,
+          "meaning": "Recorded arrival/ingest timestamp in UTC"
+        },
+        {
+          "name": "temperature_c",
+          "type": "DECIMAL(8,2)",
+          "unit": "Celsius",
+          "nullable": false,
+          "meaning": "Selected observation converted to Celsius"
+        },
+        {
+          "name": "is_late",
+          "type": "BOOLEAN",
+          "unit": null,
+          "nullable": false,
+          "meaning": "True when ingest lag exceeds 900 seconds"
+        },
+        {
+          "name": "source_object",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "Source object identifier for lineage (not an access grant)"
+        },
+        {
+          "name": "source_row",
+          "type": "BIGINT",
+          "unit": null,
+          "nullable": false,
+          "meaning": "1-based physical row/line ordinal in the source object"
+        },
+        {
+          "name": "source_sha256",
+          "type": "VARCHAR",
+          "unit": null,
+          "nullable": false,
+          "meaning": "SHA-256 of the source object containing this row"
+        }
+      ],
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 9610,
+      "input_manifest_sha256": "fe048451e073e03f1083eae9230b82521155cf7bc0b89c84110250a947f081c8",
+      "contract_sha256": "8d3ab69399fd52833206cb70524fac707f03da97660ed8a9f674c976f05649ed",
+      "code_sha256": "d5aaafb7fa5fca7ff5a3d9976857c3c4060a7e517a10e3b27e1d3d76a4c77663",
+      "quality_report": {
+        "path": "task2/quality_after.json",
+        "report_id": "quality_after"
+      },
+      "retention": {
+        "days": 90,
+        "start_basis": "publication_time",
+        "hold": false,
+        "dependent_release_ids": [],
+        "action": "dry-run only"
+      },
+      "provenance": {
+        "job": "curate",
+        "run_id": "885c06ee-6d42-49fd-a5d1-7db1fe77b2ce",
+        "operator": "Tung (Role-C / Curation)",
+        "duplicate_ledger": "work/staging/duplicates.csv",
+        "lineage": "work/evidence/lineage.jsonl",
+        "traces": "work/evidence/lineage_traces.json"
+      }
+    }
+  ]
+}
