@@ -1,0 +1,11 @@
+{
+  "release_id": "rel-89a3ec6e-r2",
+  "decision": "APPROVE",
+  "reviewer": "Nguyen Minh",
+  "reason": "Da kiem tra: gate G01-G09 PASS tren artifact chinh thuc; 8 ca P01-P08 dung ky vong (P01 PASS, P02-P08 REJECT); run 89a3ec6e, hash candidate 7d2bd035, 9610 dong; QA coverage 100/100, agreement 95/100 dung bang nguong 0.95.",
+  "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+  "candidate_sha256": "7d2bd035736df207d27fdf0c10bd967c240263a047e42d059b026c6f1d7e8e64",
+  "recorded_at": "2026-10-19T08:39:09.637188+00:00",
+  "curation_operator": "Role-C-Curation",
+  "publisher_operator": "Duc Anh"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PUBLISHED",
+  "release_id": "rel-89a3ec6e-r2",
+  "publish_run_id": "4918d138-b115-43e9-9054-bb2f6d9c5298",
+  "approved_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+  "reviewer": "Nguyen Minh",
+  "rows": 9610,
+  "manifest_sha256": "d6d14242a4747c114f9a31dcb4e3933ea564a1a1ed1bd1d71ceb7b387b416b60",
+  "manifest_matches_local": true,
+  "objects_uploaded": 7
+}
