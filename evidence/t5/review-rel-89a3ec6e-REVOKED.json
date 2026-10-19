@@ -1,0 +1,11 @@
+{
+  "release_id": "rel-89a3ec6e",
+  "decision": "APPROVE",
+  "reviewer": "Nguyen Tung",
+  "reason": "Khong",
+  "run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+  "candidate_sha256": "7d2bd035736df207d27fdf0c10bd967c240263a047e42d059b026c6f1d7e8e64",
+  "recorded_at": "2026-10-12T13:40:57.963872+00:00",
+  "curation_operator": "Role-C-Curation",
+  "publisher_operator": "Duc Anh"
+}

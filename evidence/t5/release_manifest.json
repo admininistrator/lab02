@@ -1,0 +1,51 @@
+{
+  "release_id": "rel-89a3ec6e-r2",
+  "supersedes": "rel-89a3ec6e",
+  "approved_run_id": "89a3ec6e-9e8e-4ccd-8c67-d7e8244967a9",
+  "publish_run_id": "4918d138-b115-43e9-9054-bb2f6d9c5298",
+  "store_id": "bd-g06-objects",
+  "schema_version": "research-telemetry-v1",
+  "as_of": "2026-02-09T00:00:00Z",
+  "curated_row_count": 9610,
+  "candidate_sha256": "7d2bd035736df207d27fdf0c10bd967c240263a047e42d059b026c6f1d7e8e64",
+  "reviewer": "Nguyen Minh",
+  "approval_time": "2026-10-19T08:39:09.637188+00:00",
+  "gate_result": {
+    "G01_INTEGRITY": "PASS",
+    "G01_STAGED_ARTIFACTS": "PASS",
+    "G02_CONSERVATION": "PASS",
+    "G03_SCHEMA": "PASS",
+    "G04_REQUIRED": "PASS",
+    "G05_VALUES_KEYS": "PASS",
+    "G06_TIME": "PASS",
+    "G07_REFERENCE": "PASS",
+    "G08_METADATA": "PASS",
+    "G09_LINEAGE": "PASS"
+  },
+  "artifacts": {
+    "data/curated.parquet": {
+      "sha256": "7d2bd035736df207d27fdf0c10bd967c240263a047e42d059b026c6f1d7e8e64",
+      "bytes": 209611
+    },
+    "evidence/quality_after.json": {
+      "sha256": "bf27b7c4ffda8918d3dbaf14b6c27b1ee4a62c0293d7969cbeb2b2fa8b1aaa14",
+      "bytes": 5222
+    },
+    "evidence/review.json": {
+      "sha256": "8e52ed5a1e3f3d9037298ed1f32d5b2b15808ac00380884b8692de670a64c5c2",
+      "bytes": 610
+    },
+    "evidence/run-record.json": {
+      "sha256": "9665cfbbf7d31c0b02238cf51d91c675452c434b15e17e72a49a15bfc6a6c71c",
+      "bytes": 1324
+    },
+    "metadata/catalog.json": {
+      "sha256": "07e1bc17c0adea08dff1f02e5b96b0e2cf40ab2757017d8c41c0b19675dd141d",
+      "bytes": 11734
+    },
+    "metadata/README.md": {
+      "sha256": "8f87c80514d4e3dd83e6637043aab27826dc159c0d3f03fe592b1fb60ece28a8",
+      "bytes": 3302
+    }
+  }
+}

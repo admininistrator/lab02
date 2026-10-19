@@ -1,5 +1,6 @@
-﻿"""T5 publish: recheck gate, record a named review, manifest-last upload via the owner Pod."""
+"""T5 publish: recheck gate, record a named review, manifest-last upload via the owner Pod."""
 import argparse
+import unicodedata
 import hashlib
 import json
 import os
@@ -58,6 +59,8 @@ def main():
     ap.add_argument('--reviewer')
     ap.add_argument('--decision')
     ap.add_argument('--reason')
+    ap.add_argument('--suffix', default='')
+    ap.add_argument('--supersedes', default='')
     a = ap.parse_args()
     reviewer = (a.reviewer or input('Ten reviewer (khac nguoi curation C): ')).strip()
     decision = (a.decision or input('Quyet dinh (APPROVE hoac REJECT): ')).strip().upper()
@@ -67,8 +70,11 @@ def main():
         raise SystemExit('Thieu ten reviewer hoac ly do. Khong publish.')
     if reviewer.lower() in str(rr.get('operator', '')).lower() or 'role-c' in reviewer.lower():
         raise SystemExit('Reviewer trung nguoi curation. Khong publish.')
+    folded = ''.join(ch for ch in unicodedata.normalize('NFKD', reviewer.lower()) if not unicodedata.combining(ch))
+    if 'tung' in folded:
+        raise SystemExit('Reviewer la Tung (Role C, nguoi curation). Khong publish.')
     store, run_id, publish_run = rr['store_id'], rr['run_id'], str(uuid.uuid4())
-    rid = 'rel-' + run_id[:8]
+    rid = 'rel-' + run_id[:8] + ('-' + a.suffix if a.suffix else '')
     stage = 'research-raw/lab2/staging/' + run_id + '/'
     ins = [stage + 'curated.parquet', 'catalog.json', 'run-record.json', 'contract.json',
            'research-raw/lab2/inputs/batch-01/sensors.csv',
@@ -105,7 +111,7 @@ def main():
     for p in sorted(x for x in d.rglob('*') if x.is_file()):
         arts[p.relative_to(d).as_posix()] = {'sha256': sha(p), 'bytes': p.stat().st_size}
     n = duckdb.connect().execute("SELECT count(*) FROM read_parquet('" + cand.as_posix() + "')").fetchone()[0]
-    manifest = {'release_id': rid, 'approved_run_id': run_id, 'publish_run_id': publish_run,
+    manifest = {'release_id': rid, 'supersedes': a.supersedes or None, 'approved_run_id': run_id, 'publish_run_id': publish_run,
                 'store_id': store, 'schema_version': contract['schema_version'],
                 'as_of': contract['as_of'], 'curated_row_count': n,
                 'candidate_sha256': review['candidate_sha256'], 'reviewer': reviewer,
